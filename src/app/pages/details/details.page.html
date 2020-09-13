@@ -1,0 +1,121 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="bg-dark text-white">पूर्ण नाव</th>
+              <th scope="col">{{student?.fullName}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">आईचे नाव</th>
+              <th scope="col">{{student?.motherName}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">प्रवेश क्रमांक</th>
+              <th scope="col">{{student?.generalNumber}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">जात</th>
+              <th scope="col">{{student?.cast}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">जातीचा संवर्ग</th>
+              <th scope="col">{{student?.category}}</th>
+            </tr>
+
+            <tr>
+              <th scope="col" class="bg-dark text-white">प्रवेश दिनांक</th>
+              <th scope="col">{{student?.doa | date}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">जन्म दिनांक</th>
+              <th scope="col">{{student?.dob | date}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">माध्यम</th>
+              <th scope="col">{{student?.medium}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">द्वितीय भाषा</th>
+              <th scope="col">{{student?.secondLanguage}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">लिंग</th>
+              <th scope="col">{{student?.gender}}</th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">आधार कार्ड</th>
+              <th scope="col">
+                {{student?.adharCard ? student?.adharCard : "उपलब्ध नाही"}}
+              </th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">
+                शिष्यवत्तीचा प्रकार
+              </th>
+              <th scope="col">
+                {{student?.scholorship ? student?.scholorship : "उपलब्ध नाही"}}
+              </th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">बँकेचे नाव</th>
+              <th scope="col">
+                {{student?.bankName ? student?.bankName : "उपलब्ध नाही"}}
+              </th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">खाते क्रमांक</th>
+              <th scope="col">
+                {{student?.bankAccNo ? student?.bankAccNo : "उपलब्ध नाही" }}
+              </th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">IFSC CODE</th>
+              <th scope="col">
+                {{student?.ifsc ? student?.ifsc : "उपलब्ध नाही"}}
+              </th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">Student ID</th>
+              <th scope="col" class="ion-text-nowrap">
+                {{student?.studentId ? student?.studentId : "उपलब्ध नाही"}}
+              </th>
+            </tr>
+            <tr>
+              <th scope="col" class="bg-dark text-white">पत्ता</th>
+              <th scope="col">
+                {{student?.address ? student?.address : "उपलब्ध नाही"}}
+              </th>
+            </tr>
+          </thead>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary" (click)="onEdit(student.id)"
+          >माहिती मध्ये बदल करा
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger" (click)="onDelete(student.id)"
+          >रद्द करा
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

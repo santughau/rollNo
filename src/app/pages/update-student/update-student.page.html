@@ -1,0 +1,348 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>माहिती मध्ये बदल करा </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #sstudentForm="ngForm">
+    <ion-item>
+      <ion-label>प्रवेश क्रमांक </ion-label>
+      <ion-input
+        type="text"
+        name="generalNumber"
+        #generalNumber="ngModel"
+        [(ngModel)]="student.generalNumber"
+        required
+      ></ion-input>
+    </ion-item>
+    <div *ngIf="generalNumber.invalid && generalNumber.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया प्रवेश क्रमांक लिहावे</h4>
+      </ion-text>
+    </div>
+    <h6 style="margin-left: 20px; color: red; margin-top: 10px">
+      कृपया हजेरी क्रमांक निवडावे
+    </h6>
+    <ion-item>
+      <ion-label>हजेरी क्रमांक </ion-label>
+      <ion-select
+        placeholder="Select One"
+        interface="popover"
+        mode="ios"
+        name="rollNumber"
+        #rollNumber="ngModel"
+        [(ngModel)]="student.rollNumber"
+        required
+      >
+        <ion-select-option *ngFor="let number of numbers" [value]="number"
+          >{{number}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <div *ngIf="rollNumber.invalid && rollNumber.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया हजेरी क्रमांक लिहावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>विद्यार्थ्यांची संपूर्ण नाव </ion-label>
+      <ion-input
+        type="text"
+        name="fullName"
+        #fullName="ngModel"
+        [(ngModel)]="student.fullName"
+        required="true"
+      ></ion-input>
+    </ion-item>
+    <div *ngIf="fullName.invalid && fullName.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया आपले संपूर्ण नाव लिहावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>आई चे नाव </ion-label>
+      <ion-input
+        type="text"
+        required
+        name="motherName"
+        #motherName="ngModel"
+        [(ngModel)]="student.motherName"
+      ></ion-input>
+    </ion-item>
+    <div *ngIf="motherName.invalid && motherName.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया आई चे नाव लिहावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>मोबाईल क्रमांक </ion-label>
+      <ion-input
+        type="text"
+        name="mobile"
+        #mobile="ngModel"
+        [(ngModel)]="student.mobile"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>घराचा पत्ता</ion-label>
+      <ion-input
+        type="text"
+        name="address"
+        #address="ngModel"
+        [(ngModel)]="student.address"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>प्रवेश दिनांक </ion-label>
+      <ion-datetime
+        value="01-12-2019"
+        display-timezone="Asia/Kolkata"
+        mode="ios"
+        name="doa"
+        #doa="ngModel"
+        [(ngModel)]="student.doa"
+        required
+        displayFormat="DD/MM/YYYY"
+      ></ion-datetime>
+    </ion-item>
+
+    <div *ngIf="doa.invalid && doa.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया प्रवेश दिनांक लिहावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>जन्म तारीख </ion-label>
+      <ion-datetime
+        value="2019-10-01T15:43:40.394Z"
+        display-timezone="utc"
+        mode="ios"
+        name="dob"
+        #dob="ngModel"
+        [(ngModel)]="student.dob"
+        required
+        displayFormat="DD/MM/YYYY"
+      ></ion-datetime>
+    </ion-item>
+    <div *ngIf="dob.invalid && dob.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया जन्म तारीख लिहावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>जात </ion-label>
+      <ion-input
+        type="text"
+        required
+        name="cast"
+        #cast="ngModel"
+        [(ngModel)]="student.cast"
+      ></ion-input>
+    </ion-item>
+
+    <div *ngIf="cast.invalid && cast.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया जात लिहावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>संवर्ग </ion-label>
+      <ion-select
+        placeholder="Select One"
+        interface="popover"
+        mode="ios"
+        name="category"
+        #category="ngModel"
+        [(ngModel)]="student.category"
+        required
+      >
+        <ion-select-option value="SC">SC</ion-select-option>
+        <ion-select-option value="ST">ST</ion-select-option>
+        <ion-select-option value="NT">NT</ion-select-option>
+        <ion-select-option value="SBC">SBC</ion-select-option>
+        <ion-select-option value="OBC">OBC</ion-select-option>
+        <ion-select-option value="OPEN">OPEN</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div *ngIf="category.invalid && category.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया संवर्ग निवडावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>लिंग </ion-label>
+      <ion-select
+        placeholder="Select One"
+        interface="popover"
+        mode="ios"
+        name="gender"
+        #gender="ngModel"
+        [(ngModel)]="student.gender"
+        required
+      >
+        <ion-select-option value="M">पुरुष</ion-select-option>
+        <ion-select-option value="F"> स्त्री </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div *ngIf="gender.invalid && gender.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया लिंग निवडावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>माध्यम </ion-label>
+      <ion-select
+        placeholder="Select One"
+        interface="popover"
+        mode="ios"
+        name="medium"
+        #medium="ngModel"
+        [(ngModel)]="student.medium"
+        required
+      >
+        <ion-select-option value="MARATHI">मराठी</ion-select-option>
+        <ion-select-option value="SEMI">सेमी</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div *ngIf="medium.invalid && medium.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया माध्यम निवडावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label>व्दितीय भाषा</ion-label>
+      <ion-select
+        placeholder="Select One"
+        interface="popover"
+        mode="ios"
+        name="secondLanguage"
+        #secondLanguage="ngModel"
+        [(ngModel)]="student.secondLanguage"
+        required
+      >
+        <ion-select-option value="HINDI">हिंदी</ion-select-option>
+        <ion-select-option value="SANSKRUT">संस्कृत</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div *ngIf="secondLanguage.invalid && secondLanguage.touched ">
+      <ion-text color="danger">
+        <h4 style="padding-left: 20px">कृपया व्दितीय भाषा निवडावे</h4>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label> आधारकार्ड क्रमांक </ion-label>
+      <ion-input
+        name="adharCard"
+        #adharCard="ngModel"
+        [(ngModel)]="student.adharCard"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label> Student ID </ion-label>
+      <ion-input
+        name="studentId"
+        #studentId="ngModel"
+        [(ngModel)]="student.studentId"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item
+      *ngIf="student.category == 'SC' || student.category == 'ST' || student.category == 'NT' || student.category == 'SBC'"
+    >
+      <ion-label>शिष्यवर्ती </ion-label>
+      <ion-select
+        placeholder="Select One"
+        interface="popover"
+        mode="ios"
+        name="scholorship"
+        #scholorship="ngModel"
+        [(ngModel)]="student.scholorship"
+        required
+      >
+        <ion-select-option value="SAVITRI"
+          >सावित्रीबाई फुले शिष्यवर्ती
+        </ion-select-option>
+        <ion-select-option value="MINORITY"
+          >अल्प्यसंख्याक शिष्यवर्ती</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item
+      *ngIf="student.category == 'SC' || student.category == 'ST' || student.category == 'NT' || student.category == 'SBC'"
+    >
+      <ion-label> बँक खाते क्रमांक </ion-label>
+      <ion-input
+        type="text"
+        name="bankAccNo"
+        #bankAccNo="ngModel"
+        [(ngModel)]="student.bankAccNo"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item
+      *ngIf="student.bankAccNo !=='' && (student.category == 'SC' || student.category == 'ST' || student.category == 'NT' || student.category == 'SBC') "
+    >
+      <ion-label> बँकेचे नाव </ion-label>
+      <ion-input
+        name="bankName"
+        #bankName="ngModel"
+        [(ngModel)]="student.bankName"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item
+      *ngIf="student.bankName !=='' && (student.category == 'SC' || student.category == 'ST' || student.category == 'NT' || student.category == 'SBC') "
+    >
+      <ion-label> IFSC CODE </ion-label>
+      <ion-input
+        name="ifsc"
+        #ifsc="ngModel"
+        [(ngModel)]="student.ifsc"
+      ></ion-input>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col>
+          <ion-button
+            type="submit"
+            color="primary"
+            [disabled]="sstudentForm.invalid"
+            (click)="saveStudentData()"
+          >
+            <ion-icon
+              slot="start"
+              mode="ios"
+              expand="full"
+              name="add"
+            ></ion-icon>
+            विद्यार्थ्यांची माहिती सबमिट करा
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
