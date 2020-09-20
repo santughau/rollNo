@@ -17,16 +17,314 @@
     >
     </ion-refresher-content>
   </ion-refresher>
+  <ion-segment
+    (ionChange)="segmentChanged($event)"
+    color="danger"
+    scrollable="true"
+  >
+    <ion-segment-button value="1">
+      <ion-label>सर्व मुली</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      <ion-label>सेमी</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="3">
+      <ion-label>मराठी </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="4">
+      <ion-label>शिष्यवृत्ती </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="5">
+      <ion-label>सावित्री बाई </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="6">
+      <ion-label>अल्पयंसंख्याक </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="7">
+      <ion-label>SC</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="8">
+      <ion-label>ST</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="9">
+      <ion-label>NT</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="10">
+      <ion-label>SBC</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="11">
+      <ion-label>OBC</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="12">
+      <ion-label>OPEN</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
   <ion-list>
-    <ion-item *ngFor="let item of students" (click)="goToDetailsPage(item.id)">
-      <ion-thumbnail slot="start"> <h2>{{item.rollNumber}}</h2> </ion-thumbnail>
-      <ion-label>
-        <h2>{{item.fullName}}</h2>
-        <h3>मोबाइल क्रमांक : {{item.mobile}}</h3>
-        <p>जात : {{item.cast}} संवर्ग : {{item.category}}</p>
-      </ion-label>
-    </ion-item>
+    <ng-container *ngIf="seg == '1'">
+      <ion-item
+        *ngFor="let item of students; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>
+            <span style="color: blue"> {{i+1}}</span>
+            {{item.fullName}}
+          </h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '2'">
+      <ion-item
+        *ngFor="let item of semi;  let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '3'">
+      <ion-item
+        *ngFor="let item of marathi; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+    <ng-container *ngIf="seg == '4'">
+      <ion-item
+        *ngFor="let item of scholorship; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '5'">
+      <ion-item
+        *ngFor="let item of savitri; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+    <ng-container *ngIf="seg == '6'">
+      <ion-item
+        *ngFor="let item of minor; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '7'">
+      <ion-item
+        *ngFor="let item of sc; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '8'">
+      <ion-item
+        *ngFor="let item of st; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '9'">
+      <ion-item
+        *ngFor="let item of nt; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '10'">
+      <ion-item
+        *ngFor="let item of sbc; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '11'">
+      <ion-item
+        *ngFor="let item of obc; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="seg == '12'">
+      <ion-item
+        *ngFor="let item of open; let i=index;"
+        (click)="goToDetailsPage(item.id)"
+      >
+        <ion-thumbnail slot="start">
+          <h2>{{item.rollNumber}}</h2>
+        </ion-thumbnail>
+        <ion-label>
+          <h2><span style="color: blue"> {{i+1}}</span> {{item.fullName}}</h2>
+          <h3>
+            मोबाइल क्रमांक : {{item.mobile}}
+            <span class="text-danger">{{item.medium}}</span>
+          </h3>
+          <p>
+            <span class="text-danger">जात : </span>{{item.cast}}
+            <span class="text-danger"> संवर्ग : </span>{{item.category}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="goToAddStudent()">

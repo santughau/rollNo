@@ -12,6 +12,14 @@ export class MyserviceService {
     return this.http.get("https://bpegm.co/kamini/student.php");
   }
 
+  getSEMIStudents(): Observable<any> {
+    return this.http.get("http://localhost/kamini/semi.php");
+  }
+
+  getMarathiStudents(): Observable<any> {
+    return this.http.get("http://localhost/kamini/marathi.php");
+  }
+
   getSingleStudent(id): Observable<any> {
     return this.http.post("https://bpegm.co/kamini/studentById.php", {
       id: id,
